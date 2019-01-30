@@ -59,5 +59,5 @@ INSERT INTO public.test_table ("key", value) VALUES('uno', 1);
 
 log:
 ```
-Got notification: insert_event uno
+Got notification: insert_event{"key":"uno","value":1}
 ```
