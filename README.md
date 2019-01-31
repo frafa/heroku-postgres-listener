@@ -46,7 +46,27 @@ EXECUTE PROCEDURE PUBLIC.NOTIFY();
 
 Avvio dell'applicazione
 -----------------------
-Per avviare l'applicazione è sufficiente collegare il progetto GitHub a Heroku e scaricare il progetto per avviare la build ed il deploy del dyno.
+
+### Deploy
+Per deployare l'applicazione occorre effettuare le seguenti attività:
+- collegare il progetto GitHub a Heroku 
+- procedere a deployare manualmente il progetto
+
+### Start/Stop del dyno
+L'applicazione viene eseguita come *worker* (come specificato nel file *Procfile* presente nella root) occorre pertanto avviare e stoppare il dyno da riga di comando
+
+Start
+```
+heroku ps:scale worker=1 -a <nome-app>
+```
+
+Stop
+
+```
+heroku ps:scale worker=0 -a <nome-app>
+```
+
+
 
 Test dell'applicazione
 ----------------------
@@ -61,3 +81,5 @@ log:
 ```
 Got notification: insert_event{"key":"uno","value":1}
 ```
+
+Per visualizzare i log occorre selezionare la voce *View logs* dal menù *More*.
